@@ -1,0 +1,7 @@
+#define FB_WIDTH     640
+#define FB_HEIGHT    480
+
+#define FB_ADR			(0x04800000)
+
+#define RAY_DATA_ADR	0x05000000
+#define OCTREE_ADR	0x06000000	 //  0xA00000

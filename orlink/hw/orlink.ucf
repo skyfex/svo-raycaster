@@ -1,0 +1,64 @@
+
+VCCAUX = 3.3;
+
+########################################
+# Reset button and LEDs
+########################################
+NET "rst_n" LOC = "T15"  |  IOSTANDARD=LVCMOS18; # Bank = 2, Pin name = IO_L1N_M0_CMPMISO_2, Sch name = M0/RESET
+NET "btn<0>" LOC = "N4"  |  IOSTANDARD=LVCMOS18;  # Bank = 3, Pin name = IO_L1P, 	   		   Sch name = BTNU
+NET "btn<1>" LOC = "P4"  |  IOSTANDARD=LVCMOS18;  # Bank = 3, Pin name = IO_L2P, 	   		   Sch name = BTNL
+NET "btn<2>" LOC = "P3"  |  IOSTANDARD=LVCMOS18;  # Bank = 3, Pin name = IO_L2N, 	   		   Sch name = BTND
+NET "btn<3>" LOC = "F6" |  IOSTANDARD=LVCMOS18;  # Bank = 3, Pin name = IO_L55P_M3A13, 	   Sch name = BTNR
+NET "btn<4>" LOC = "F5" |  IOSTANDARD=LVCMOS18;  # Bank = 3, Pin name = IO_L55N_M3A14, 	   Sch name = BTNC
+
+
+NET "led<0>" LOC = "U18" |  IOSTANDARD=LVCMOS33; # Bank = 1, Pin name = IO_L52N_M1DQ15, 	   Sch name = LD0
+NET "led<1>" LOC = "M14" |  IOSTANDARD=LVCMOS33; # Bank = 1, Pin name = IO_L53P, 		 	   Sch name = LD1
+NET "led<2>" LOC = "N14" |  IOSTANDARD=LVCMOS33; # Bank = 1, Pin name = IO_L53N_VREF, 	   Sch name = LD2
+NET "led<3>" LOC = "L14" |  IOSTANDARD=LVCMOS33; # Bank = 1, Pin name = IO_L61P, 		 	   Sch name = LD3
+NET "led<4>" LOC = "M13" |  IOSTANDARD=LVCMOS33; # Bank = 1, Pin name = IO_L61N, 		 	   Sch name = LD4
+NET "led<5>" LOC = "D4" |  IOSTANDARD=LVCMOS33;  # Bank = 0, Pin name = IO_L1P_HSWAPEN_0,	   Sch name = HSWAP/LD5
+NET "led<6>" LOC = "P16" |  IOSTANDARD=LVCMOS33; # Bank = 1, Pin name = IO_L74N_DOUT_BUSY_1, Sch name = LD6
+NET "led<7>" LOC = "N12" |  IOSTANDARD=LVCMOS33; # Bank = 2, Pin name = IO_L13P_M1_2,		   Sch name = M1/LD7
+
+# PortB
+NET "fifoData_io<0>"  LOC = "A2" | IOSTANDARD = LVCMOS33;   # PB0
+NET "fifoData_io<1>"  LOC = "D6" | IOSTANDARD = LVCMOS33;   # PB1
+NET "fifoData_io<2>"  LOC = "C6" | IOSTANDARD = LVCMOS33;   # PB2
+NET "fifoData_io<3>"  LOC = "B3" | IOSTANDARD = LVCMOS33;   # PB3
+NET "fifoData_io<4>"  LOC = "A3" | IOSTANDARD = LVCMOS33;   # PB4
+NET "fifoData_io<5>"  LOC = "B4" | IOSTANDARD = LVCMOS33;   # PB5
+NET "fifoData_io<6>"  LOC = "A4" | IOSTANDARD = LVCMOS33;   # PB6
+NET "fifoData_io<7>"  LOC = "C5" | IOSTANDARD = LVCMOS33;   # PB7
+
+NET "ifclk_in"        LOC = "C10" | IOSTANDARD = LVCMOS33 | TNM_NET = ifclk_in_pin;
+NET "gotData_in"      LOC = "C15" | IOSTANDARD = LVCMOS33;  # FLAGC
+NET "gotRoom_in"      LOC = "A9" | IOSTANDARD = LVCMOS33;   # FLAGB
+
+# PortA
+NET "sloe_out"        LOC = "A15" | IOSTANDARD = LVCMOS33;   # PA2
+NET "fifoAddr_out<0>" LOC = "A14" | IOSTANDARD = LVCMOS33;   # PA4
+NET "fifoAddr_out<1>" LOC = "B14" | IOSTANDARD = LVCMOS33;   # PA5
+NET "pktEnd_out"      LOC = "C4"  | IOSTANDARD = LVCMOS33;    # PA6
+
+NET "slrd_out"        LOC = "F13" | IOSTANDARD = LVCMOS33;
+NET "slwr_out"        LOC = "E13" | IOSTANDARD = LVCMOS33;
+
+TIMESPEC TS_ifclk_in_pin = PERIOD ifclk_in_pin 48 MHz  HIGH 50 %;
+
+
+##############################################################################
+# SYSCLK Input
+##############################################################################
+
+NET "SYS_CLK" TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100 MHz  HIGH 50 %;
+
+NET "SYS_CLK"   LOC = "L15"  |  IOSTANDARD=LVCMOS33; # Bank = 1, Pin name = IO_L42P_GCLK7_M1UDM, Type = GCLK, Sch name = GCLK
+
+# NET "btn<0>" TIG;
+
+#############
+
+
+
